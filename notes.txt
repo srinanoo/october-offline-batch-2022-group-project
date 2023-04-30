@@ -1,0 +1,44 @@
+classes
+    id
+    className
+    timings
+    daysPerWeek
+http://localhost:5000/classes/add
+http://localhost:5000/classes/edit
+http://localhost:5000/classes/delete
+http://localhost:5000/classes/list
+
+batch
+    id
+    batchName
+    batchDates
+http://localhost:5000/batch/add
+http://localhost:5000/batch/edit
+http://localhost:5000/batch/delete
+http://localhost:5000/batch/list
+
+students
+    id
+    name
+    batchId
+    classId
+http://localhost:5000/students/add
+http://localhost:5000/students/edit
+http://localhost:5000/students/delete
+http://localhost:5000/students/list
+
+
+NODE Server File Structure:
+    server.js or index.js (API entry point) => Reception
+        - routes => Path ways (Event Loop)
+        - controllers => Data Validations / Send back Responses
+        - services => actual (db data retrieval/processing, or file processing) work and return back to controllers
+
+Express File Structure
+    - entry point (express.js) // http://localhost:5000/users or http://localhost:5000/products (delegating...)
+        -> routes // users/add or users/edit or users/delete or users/list (routing...)
+            -> controllers // add or edit or delete or list (actual functionality)
+                -> services // db operations or file opertions
+        -> routes // products/add or products/edit or products/delete or products/list (routing...)
+            -> controllers // add or edit or delete or list (actual functionality)
+                -> services // db operations or file opertions

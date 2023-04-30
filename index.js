@@ -84,9 +84,9 @@ let data = [{
 // fs.unlinkSync
 
 ////////////////////////////////
-function readUser(userId=null) {
+async function readUser(userId=null) {
     if(userId !== null) {
-        fs.readFile("sample.json", "utf-8", (err, data) => {
+        await fs.readFile("sample.json", "utf-8", (err, data) => {
             if(err) console.log(err);
 
             let output = JSON.parse(data);
