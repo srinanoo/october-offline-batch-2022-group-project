@@ -42,3 +42,31 @@ Express File Structure
         -> routes // products/add or products/edit or products/delete or products/list (routing...)
             -> controllers // add or edit or delete or list (actual functionality)
                 -> services // db operations or file opertions
+
+NOTES: 06-05-2023
+
+RESTful API
+    - GET (querystring)
+    - POST (request body or form body)
+    - PUT (any updates)
+    - DELETE (any deletion)
+
+    - Concept
+        - listAll / readAll / showAll
+        - listById / readById / showById
+
+        - update
+
+        - deleteById
+
+        - create / add
+
+        - Users (number, string, boolean, array, array of objects, object, object of array, object of object)
+            - id
+            - name
+            - username
+            - email
+            - password
+            - phone
+            - gender
+            - age

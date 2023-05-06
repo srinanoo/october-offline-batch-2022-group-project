@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #results {
+            display: flex;
+        }
+        #results div {
+            width: 33.3333333%;
+            background-color: red;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="results"></div>
+
+    <script>
+        fetch('http://localhost:5000/showAllTrainees', {method: "POST"})
+            .then(data => data.json())
+            .then(res => {
+                console.log(res);
+                let output = "";
+                res.forEach(v => {
+                    output += '<div>';
+                        output += '<p>Name: ' + v.name + '</p>';
+                        output += '<p>DOB: ' + v.dob + '</p>';
+                        output += '<p>Batch: ' + v.batch + '</p>';
+                        output += '<p>Timings: ' + v.timings + '</p>';
+                        output += '<p>Days: ' + v.days + '</p>';
+                        output += '<p>Year: ' + v.year + '</p>';
+                        output += '<p>Email: ' + v.email + '</p>';
+                    output += '</div>';
+                });
+                document.querySelector("#results").innerHTML = output;
+            });
+    </script>
+    
+</body>
+</html>

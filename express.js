@@ -32,6 +32,17 @@ app.post("/json", (req, res, err) => { // http://localhost:5000/
     res.json(req.body);
 });
 
+app.put("/put", (req, res, err) => {
+    console.log(req.body.id);
+    console.log(req.body.name);
+    res.json(req.body);
+});
+
+app.delete("/delete", (req, res, err) => {
+    console.log(req.body.id);
+    res.json(req.body);
+});
+
 app.listen(PORT, () => {
     console.log(`Express listening on port: ${PORT}`);
 });

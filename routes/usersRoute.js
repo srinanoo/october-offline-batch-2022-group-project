@@ -1,3 +1,3 @@
-// const Routes = require('express').Routes;
+const Router = require('express').Router();
 
-// Routes.get
+// Router.delete
