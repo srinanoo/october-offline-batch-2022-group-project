@@ -24,13 +24,13 @@ http.createServer((req, res, err) => {
     if(err) console.log(err.message);
 
     if(req.url !== "/favicon.ico") {
-        if(req.url.indexOf("students") !== -1) {
+        if(req.url.indexOf("students") !== -1) { // http://localhost:5000/students/add
             student(req.url, req, res, err);
             // res.write("Students Route");
-        } else if(req.url.indexOf("batch") !== -1) {
+        } else if(req.url.indexOf("batch") !== -1) { // http://localhost:5000/batch/add
             batch(req.url);
             // res.write("Batch Route");
-        } else if(req.url.indexOf("classes") !== -1) {
+        } else if(req.url.indexOf("classes") !== -1) { // http://localhost:5000/classes/add
             classes(req.url);
             // res.write("Classes Route")
         } else {

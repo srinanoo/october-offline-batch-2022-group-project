@@ -70,3 +70,50 @@ RESTful API
             - phone
             - gender
             - age
+
+
+NOTES: 07-05-2023
+
+API
+    - Application Programming Interface
+        - bridge connecting 2 different networks/platform
+            - frontend and backend
+
+    - Usage
+        - to send and receive data
+
+    - Types
+        - 3 Types
+            - Normal APIs
+                - GET
+                - POST
+            
+            - RESTful (CRUD - Create, Read, Update, Delete)
+                - GET (querystring)
+                    - to retrieve (Read)
+                - POST (form/req body)
+                    - to add (Create)
+                - PUT (querystring, form/req body)
+                    - to update
+                - DELETE (querystring, form/req body)
+                    - to delete
+
+                - Non Structural
+                    - number
+                    - string
+                    - array
+                    - object
+                    - boolean
+
+                    - querystring
+                    - form body
+                    - form body (json, text, xml, binary)
+
+            - SOAP APIs
+                - GET
+                - POST
+                - PUT
+                - DELETE
+
+                - Structural
+                    - XML

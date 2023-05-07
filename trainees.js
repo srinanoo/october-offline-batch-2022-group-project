@@ -11,7 +11,27 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-app.post("/showAllTrainees", (req, res, err) => {
+app.get("/queryString", (req, res, err) => {
+    console.log(req.query.name);
+    res.send("");
+});
+
+app.post("/post", (req, res, err) => {
+    console.log(req.body.name);
+    res.send("");
+});
+
+app.put('/json', (req, res, err) => {
+    console.log(req.body.name);
+    res.send("");
+});
+
+app.put('/xml', (req, res, err) => {
+    console.log(req);
+    res.send("This is an XML route");
+});
+
+app.post("/showAllTrainees", (req, res, err) => { // http://localhost:5000/showAllTrainees
     if(err) console.log(err);
 
     fs.readFile(traineeFile, "utf-8", (err, data) => {
@@ -21,7 +41,7 @@ app.post("/showAllTrainees", (req, res, err) => {
     });
 });
 
-app.post("/showTrainee", (req, res, err) => {
+app.post("/showTrainee", (req, res, err) => { // http://localhost:5000/showTrainee
     if(err) console.log(err);
 
     fs.readFile(traineeFile, "utf-8", (err, data) => {
@@ -34,7 +54,7 @@ app.post("/showTrainee", (req, res, err) => {
     });
 });
 
-app.post("/addTrainee", (req, res, err) => {
+app.post("/addTrainee", (req, res, err) => { // http://localhost:5000/addTrainee
     if(err) console.log(err);
 
     // const {name, batch, year, timings, days} = req.body;
@@ -81,7 +101,7 @@ app.post("/addTrainee", (req, res, err) => {
     });
 });
 
-app.put("/updateTrainee", (req, res, err) => {
+app.put("/updateTrainee", (req, res, err) => { // http://localhost:5000/updateTrainee
     if(err) console.log(err);
 
     fs.readFile(traineeFile, "utf-8", (err, data) => {
@@ -111,7 +131,7 @@ app.put("/updateTrainee", (req, res, err) => {
     });
 });
 
-app.delete("/deleteTrainee", (req, res, err) => {
+app.delete("/deleteTrainee", (req, res, err) => { // http://localhost:5000/deleteTrainee
     if(err) console.log(err);
 
     fs.readFile(traineeFile, "utf-8", (err, data) => {
