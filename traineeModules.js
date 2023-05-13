@@ -1,5 +1,5 @@
 const fs = require('fs');
-const traineeFile = "./traineeNode.json";
+const traineeFile = "../traineeNode.json";
 
 const showAllTrainees = (req, res) => {
     fs.readFile(traineeFile, 'utf8', (err, data) => {
