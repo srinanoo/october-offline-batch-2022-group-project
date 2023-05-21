@@ -117,3 +117,247 @@ API
 
                 - Structural
                     - XML
+
+
+NOTES: 14-05-2023
+
+MongoDB
+    - Database
+        - List all current DBs
+            show dbs
+        - Create or Switch to current database
+            use <db name>
+                if db doesnt exist then it will create and switch to the newly created DB.
+                if db exists then it will switch to the mentioned DB.
+        - Delete
+            db.dropDatabase()
+    - Collection
+        - List all collections
+            show collections
+        - Create
+            1:
+                db.<collection name>.insertOne()
+            2:
+                db.createCollection(<collection name>)
+        - Delete
+            db.<collection name>.drop()
+    - Document
+        - Create
+            db.<collection name>.insertOne({})
+            or
+            db.<collection name>.insertMany([{}, {}])
+        - Read
+            db.<collection name>.find()
+            or
+            db.<collection name>.find({field: value})
+        - Update
+            db.<collection name>.updateOne({existing_field: existing_value}, {$set: {update_field: update_value}})
+            or
+            db.<collection name>.updateMany({existing_field: existing_value}, {$set: {update_field: update_value}})
+            or
+            db.<collection name>.updateMany({}, {$set: {update_field: update_value}})
+            or
+            db.<collection name>.updateMany({existing_field: existing_value}, {$set: {update_field: update_value}}, {upsert: true})
+        - Delete
+            db.<collection name>.deleteOne({existing_field: existing_value})
+            or
+            db.<collection name>.deleteMany({existing_field: existing_value})
+            or
+            db.<collection name>.deleteMany({})
+    - Fields/Values
+        - based on Data Types
+
+
+NOTES: 20-05-2023
+
+Final Project
+    - Balaji    = Banking Portal
+    - Dhawoodh  = College Portal
+    - Leela     = Chess Portal
+    - Sanjay    = Ecommerce
+    - Saravanan = Music Forums
+    - Rohini    = 
+
+
+MongoDB Commands:
+    - Database
+        - List all Databases
+            - show dbs
+        - Create
+            - use <db name>
+        - Select / Switch to current db
+            - use <db name>
+        - Delete
+            - db.dropDatabase()
+
+    - Collection (in RDBMS this is called as "TABLES")
+        - Show all Collections
+            - show collections
+        - Create
+            - db.createCollection("<collection name>")
+            or
+            - db.<collection name>.insertOne({})
+            or
+            - db.<collection name>.insertMany([{}])
+        - Delete
+            - db.<collection name>.drop()
+
+    - Document (in RDBMS this is called "Rows"/"Records")
+        - Show all Documents
+            - db.<collection name>.find()
+        - Show specific Document
+            - db.<collection name>.find({<field name>: <field value>})
+        - Create
+            - db.<collection name>.insertOne({<field1 name>: <field1 value>, <field2 name>: <field2 value>, ...})
+            or
+            - db.<collection name>.insertMany(
+                [
+                    {<field1 name>: <field1 value>, <field2 name>: <field2 value>, ...}, 
+                    {<field1 name>: <field1 value>, <field2 name>: <field2 value>, ...},
+                    {<field1 name>: <field1 value>, <field2 name>: <field2 value>, ...}
+                ]
+            )
+        - Update
+            - db.<collection name>.updateOne({<ref field>: <ref value>}, {$set: {<update field>: <update value>}})
+            or
+            - db.<collection name>.updateMany({<ref field>: <ref value>}, {$set: {<update field>: <update value>}})
+            or
+            - db.<collection name>.updateOne({}, {$set: {<update field>: <update value>}})
+            or
+            - db.<collection name>.updateOne({<ref field>: <ref value>}, {$set: {<update field>: <update value>}}, {upsert: true})
+        - Delete
+            - db.<collection name>.deleteOne({<ref field>: <ref value>})
+            or
+            - db.<collection name>.deleteMany({<ref field>: <ref value>})
+            or
+            - db.<collection name>.deleteOne({})
+            or
+            - db.<collection name>.deleteMany({})
+
+    - Query in NoSQL (MongoDB)
+        db.studentDetails.find({name: "Vishnu"})
+        db.studentDetails.find({subject: "NodeJs"})
+
+        db.studentDetails.find({subject: "NodeJs", name: "temp"}) => AND
+
+        db.studentDetails.find({$or: [{subject: "MongoDB"}, {subject: "HTML"}, {}]}) => OR
+
+        db.studentDetails.find({name: {$in: ['Dinesh', 'Fouzi', 'temp', 'Vishnu']}}) => IN
+
+
+        db.studentDetails.find({name: {$in: ['Dinesh', 'Fouzi', 'temp', 'Vishnu']}, subject: {$in: ['CSS', 'NodeJs']}}) => AND + IN
+        db.studentDetails.find(
+            {
+                name: {$in: ['Dinesh', 'Fouzi', 'temp', 'Vishnu']}, 
+                subject: {$in: ['CSS']}
+            }
+        )
+
+        db.<collection name>.find({field1: value1, field2: value2}) => AND
+        db.<collection name>.find({$or: [{field1: value1}, {field2: value2}]}) => OR
+        db.<collection name>.find({field1: {$in: [value1, value2, value3, value4,...]}}) => IN
+        db.<collection name>.find(
+            {
+                field1: {$in: [value1, value2, value3, value4,...]},
+                field2: {$in: [value1, value2, value3, value4,...]}
+            }
+        ) => IN + AND
+
+        - db.studentDetails.find({name: "fouzi"})
+
+        - EQ (Equal)
+            db.<collection name>.find({field1: {$eq: value}})
+
+        - NE (Not Equal)
+            db.<collection name>.find({field1: {$ne: value}})
+
+        - GT (Greater Than)
+            db.<collection name>.find({field1: {$gt: value1}})
+
+        - GTE (Greater Than and Equal)
+            db.<collection name>.find({field1: {$gte: value1}})
+
+        - LT (Lesser Than)
+            db.<collection name>.find({field1: {$lt: value1}})
+
+        - LTE (Lesser Than and Equal)
+            db.<collection name>.find({field1: {$lte: value1}})
+
+        - RegEx
+            LIKE operator equivalent in MongoDB
+            for word/character/string starting in the field : like 'Dinesh%'  ("Dinesh" should be the starting point of the field
+            db.studentDetails.find({name: /^Dinesh/})
+
+            for word/character/string ending in the field : like '%Dinesh' ("Dinesh" should be the ending point of the field
+            db.studentDetails.find({name: /Dinesh$/})
+
+            for word/character/string anywhere in the field : like '%Dinesh%' ("Dinesh" can be anywhere inside the field
+            db.studentDetails.find({name: /Dinesh/})
+
+        - find by Id
+            db.<collection name>.find({"_id": ObjectId("64687aa4eb64350502c0d3e2")})
+
+
+NOTES: 21-05-2023
+
+To Do for this week:
+    - ReactJs
+        - Dashboard (Admin Operation)
+            - DB Design/Schema
+                List of collections
+                    List of fields and datatypes
+                        - CRUD (Create, Read, Update, Delete)
+    - MongoDB
+        - Create all necessary DB, Collection
+    - NodeJs/ExpressJs
+        - - CRUD (Create, Read, Update, Delete) using Mongoose package
+
+MERN File/Folder Architecture
+    - ReactJs
+        - entry point (index.js)
+            - App (app.js)
+                - RouterDom
+                    - Pages
+                        Page1
+                        Page2
+                        Page3
+                    - Components
+                        Comp1 Banner
+                        Comp2 Footer
+                        Comp3 Header
+                        Comp4 Grid
+    - NodeJs
+        - entry point (index.js / server.js)
+            - index.js / server.js
+                entry1 (trainees) (include trainees route1)
+                entry2 (batch) (include batch route2)
+                entry3 (classes) (include classes route3)
+            - routes
+                trainees route1 (include route1 - controller)
+                batch route2 (include route2 - controller)
+                classes route3 (include route3 - controller)
+            - controllers
+                trainees route1 - controller
+                    - include trainees model (mongoose)
+                        CRUD
+                batch route2 - controller
+                    - include batch model (mongoose)
+                        CRUD
+                classes route3 - controller
+                    - include classes model (mongoose)
+                        CRUD
+            - models
+                trainees model
+                    - Mongoose Schema
+                    - Mongoose model
+                    - db Connection
+                batch model
+                    - Mongoose Schema
+                    - Mongoose model
+                    - db Connection
+                classes model
+                    - Mongoose Schema
+                    - Mongoose model
+                    - db Connection
+        - DB
+        - .env

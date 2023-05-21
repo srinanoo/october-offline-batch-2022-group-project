@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        img {
+            max-width: 100%;
+        }
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .flex > div {
+            width: 23%;
+            padding: 5%;
+        }
+        .content {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .container:hover > img {
+            opacity: 0.3;
+        }
+
+        .container:hover > .content {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex">
+        <div class="container">
+            <img src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <div class="content">
+                <h2>Heading</h2>
+                <p>Paragraph</p>
+            </div>
+        </div>
+        <div class="container">
+            <img src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <div class="content">
+                <h2>Heading</h2>
+                <p>Paragraph</p>
+            </div>
+        </div>
+        <div class="container">
+            <img src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+            <div class="content">
+                <h2>Heading</h2>
+                <p>Paragraph</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
